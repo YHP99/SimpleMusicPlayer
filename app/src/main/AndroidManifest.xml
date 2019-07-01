@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.example.musicplayer">
+    <!-- 안드로이드 미디어 저장소에 접근하기 위해 동적으로 권한요청을 통해 권한을 획득하는 과정이 필요 -->
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" /> <!-- wakeMode를 사용하기 위해 퍼미션 설정 -->
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+
+    <application
+        android:name=".AudioApplication"
+        android:allowBackup="true"
+        android:icon="@drawable/music"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+        <activity android:name=".IntroActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <activity android:name=".MainActivity">
+        </activity>
+
+        <!-- 서비스를 사용하기 위해 서비스 등록 -->
+        <service
+            android:name=".AudioService"
+            android:enabled="true"
+            android:exported="true">
+
+            <!-- Action을 사용하기 위해 Service 태그 내에 등록함 -->
+            <intent-filter>
+                <action android:name="REWIND" />
+                <action android:name="TOGGLE_PLAY" />
+                <action android:name="FORWARD" />
+                <action android:name="CLOSE" />
+            </intent-filter>
+        </service>
+    </application>
+
+</manifest>
