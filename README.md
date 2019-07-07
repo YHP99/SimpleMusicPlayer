@@ -4,4 +4,4 @@
 ## Sleeping mode
 If you click the sleeping mode, the music will stop after 2 hours.
 
-If you click the cancel of sleeping mode, the sleeping mode will cancel.
+If you click the cancel of sleeping mode, the sleeping mode will be cancelled.
